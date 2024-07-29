@@ -10,7 +10,7 @@ data = gp.create_geomodel(project_name='horizontal', extent=[0, 1000, 0, 1000, 0
     )
 )
 # Map geological series to surfaces
-gp.map_stack_to_surfaces(gempy_model=data, mapping_object={"Strat_Series": ('rock2', 'rock1'), "Basement_Series":('basement')})
+gp.map_stack_to_surfaces(gempy_model=data, mapping_object={"Strat_Series": ('rock2', 'rock1')})
 # This is generating 3 layers individually(see the result in FIGURE 1 listed in this repository)
 
 # Compute the geological model
@@ -20,8 +20,8 @@ geo_data = data
 # Display results
 # Plot the result of the model in the x 
 gpv.plot_2d(geo_data, direction=['x'], show_data=True, show_boundaries=False)
-# Generated Data can be viewed in FIGURE 3 listed in this repository
+# Generated Data can be viewed in FIGURE 2 listed in this repository
 
 # Plot the result of the model in the y 
 gpv.plot_2d(geo_data, direction=['y'], show_data=True, show_boundaries=False)
-# Generated Data can be viewed in FIGURE 4 listed in this repository
+# Generated Data can be viewed in FIGURE 3 listed in this repository
