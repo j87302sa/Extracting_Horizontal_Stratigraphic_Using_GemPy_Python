@@ -1,0 +1,17 @@
+# Importing Libraries 
+import gempy as gp 
+import gempy_viewer as gpv 
+
+data_path = 'https://raw.githubusercontent.com/cgre-aachen/gempy_data/master/'
+# Create a GeoModel instance
+data = gp.create_geomodel(project_name='horizontal', extent=[0, 1000, 0, 1000, 0, 1000], refinement=6, importer_helper=gp.data.ImporterHelper(
+        path_to_orientations=data_path + "/data/input_data/jan_models/model1_orientations.csv",
+        path_to_surface_points=data_path + "/data/input_data/jan_models/model1_surface_points.csv"
+    )
+)
+# Map geological series to surfaces
+gp.map_stack_to_surfaces(gempy_model=data, mapping_object={"Strat_Series": ('rock2', 'rock1')})
+
+# Compute the geological model
+gp.compute_model(data)
+geo_data = data
